@@ -1,0 +1,96 @@
+site_name: Yalin(Eric) Yang's Projects
+# site_description: A Python package for interactive mapping with Google Earth Engine
+site_author: Yalin(Eric) Yang
+site_url: https://gisyaliny.github.io/projects/
+copyright: "Copyright &copy; 2022 - 2023 Yalin Yang"
+
+# Repository
+repo_name: gisyaliny/projects
+repo_url: https://gisyaliny.github.io/projects/
+
+# Configuration
+theme:
+    language: en
+    palette:
+        - scheme: default
+          #   primary: blue
+          #   accent: indigo
+          toggle:
+              icon: material/toggle-switch-off-outline
+              name: Switch to dark mode
+        - scheme: slate
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/toggle-switch
+              name: Switch to light mode
+    name: material
+    icon:
+        repo: fontawesome/brands/github
+    features:
+        - navigation.instant
+        - navigation.tracking
+        - navigation.top
+        # - toc.integrate
+        # - navigation.tabs
+        - navigation.sections
+        - search.highlight
+        - search.share
+    # custom_dir: "docs/overrides"
+    font:
+        text: Google Sans
+        code: Regular
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://gisyaliny.github.io/
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/c17hawke
+    - icon: fontawesome/brands/linkedin
+      link: www.linkedin.com/in/gisyaliny
+    # - icon: fontawesome/brands/instagram
+    #   link: https://www.instagram.com/c17hawke/
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js #?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+    - admonition
+    - abbr
+    - attr_list
+    - def_list
+    - footnotes
+    - meta
+    - md_in_html
+    - pymdownx.details
+    - pymdownx.mark
+    - pymdownx.superfences
+    - pymdownx.highlight:
+          linenums: true
+    - toc:
+          permalink: true
+  
+plugins:
+    - search
+    - mkdocstrings
+    - git-revision-date
+    - git-revision-date-localized:
+          enable_creation_date: true
+          type: timeago
+    # - pdf-export
+    - mkdocs-jupyter:
+          include_source: True
+          ignore_h1_titles: True
+          allow_errors: false
+          ignore: ["conf.py"]
+          #   execute: True
+
+nav:
+    - Home: index.md
+    - Computer Vision:
+      - OpenCV:
+        - Object Detection: "Computer-Vision/Object-Detection-Using-OpenCV.ipynb"
+    # - Math:
