@@ -77,6 +77,7 @@ plugins:
     - search
     - mkdocstrings
     - git-revision-date
+    - open-in-new-tab
     - git-revision-date-localized:
           enable_creation_date: true
           type: timeago
@@ -93,4 +94,14 @@ nav:
     - Computer Vision:
       - OpenCV:
         - Object Detection: "Computer-Vision/Object-Detection-Using-OpenCV.ipynb"
-    # - Math:
+    - Research:
+      - Measuring the vibrancy of Austin using taxi data:
+        - Project Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/intro.pdf"
+      - Quantifying the impacts of POIs on human networks:
+        - Association Mining Overview: "Research/Quantifying-the-impacts-of-POIs-on-human-networks/YalinYang-Poster.pdf"
+        - Place Recommendation Systems: "Research/Quantifying-the-impacts-of-POIs-on-human-networks/Enhancing-Place-Recommendation-Systems-using-Social-events.pdf"
+        - Web application: "https://storymaps.arcgis.com/stories/546b6e82d701424b8bc2a9a0900786f7"
+      - GeoAI foundation model:
+        - Project Intro: "Research/GEOAI-Model-Transformation/IGUIDE_Team6.pdf"
+        - Script Instruction: "Research/GEOAI-Model-Transformation/instruction.ipynb"
+
