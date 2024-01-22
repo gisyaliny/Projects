@@ -96,7 +96,11 @@ nav:
         - Object Detection: "Computer-Vision/Object-Detection-Using-OpenCV.ipynb"
     - Research:
       - Measuring the vibrancy of Austin using taxi data:
-        - Project Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/intro.pdf"
+        - Project Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/introduction.pdf"
+        - Video Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/Intro.mp4"
+        - Sample Script (Selected):
+          - Data Preprocessing: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/Data-Clean.ipynb"
+          - Page Rank: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/PageRank.ipynb"
       - Quantifying the impacts of POIs on human networks:
         - Association Mining Overview: "Research/Quantifying-the-impacts-of-POIs-on-human-networks/YalinYang-Poster.pdf"
         - Place Recommendation Systems: "Research/Quantifying-the-impacts-of-POIs-on-human-networks/Enhancing-Place-Recommendation-Systems-using-Social-events.pdf"
@@ -109,5 +113,15 @@ nav:
         - Shiny APP download: "Research/City-Sensitivity-Analysis/app2.R"
       - Deciphering the Impact of Built Environments on Sleep Quality:
         - Project Intro: "Research/Deciphering-the-Impact-of-Built-Environments-on-Sleep-Quality/Intro.png"
+        - Android App Development: "https://gisyaliny.github.io/files/research/GPS%20App%20instructions.pdf"
+        - Serverless App development with AWS: "https://gisyaliny.github.io/#researchModal4"
+      - Add-in plug-in Development For Dislocated Water System Extraction:
+        - Project Intro: "Research/Add-in-plug-in-Development-For-Dislocated-Water-System-Extraction/intro.ipynb"
+        - Script Download: "Research/Add-in-plug-in-Development-For-Dislocated-Water-System-Extraction/ProfileAnalyst1.rar"
+      - Traffic Accidents In Dallas:
+        - Project Intro: "Research/Traffic-Accidents-In-Dallas/Intro.pdf"
+        - MapMatching (Tranditional): "Research/Traffic-Accidents-In-Dallas/MapMatching.pdf"
+        - MapMatching (HMM): "Research/Traffic-Accidents-In-Dallas/MapMatching-HMM.pdf"
+      
       
 
