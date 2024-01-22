@@ -104,4 +104,10 @@ nav:
       - GeoAI foundation model:
         - Project Intro: "Research/GEOAI-Model-Transformation/IGUIDE_Team6.pdf"
         - Script Instruction: "Research/GEOAI-Model-Transformation/instruction.ipynb"
+      - Tweets Sensitivity Analysis:
+        - Project Intro: "Research/City-Sensitivity-Analysis/Tweets-sentimental.nb.html"
+        - Shiny APP download: "Research/City-Sensitivity-Analysis/app2.R"
+      - Deciphering the Impact of Built Environments on Sleep Quality:
+        - Project Intro: "Research/Deciphering-the-Impact-of-Built-Environments-on-Sleep-Quality/Intro.png"
+      - The inter ethnic inequality in New York city:
 
