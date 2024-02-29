@@ -99,14 +99,17 @@ nav:
     - Data Analyst:
       - PowerBI:
         - Sales Summary: "https://app.powerbi.com/view?r=eyJrIjoiNzk2MjY2OTktZjNjOS00YzYzLTg5Y2YtN2Y0NTcxNzAxYmFkIiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9"
+    - Deep-Learning:
+      - NLP:
+        - Craigslist Rent: "Deep-Learning/NLP/NLP-LSTM.ipynb"
     - Research:
-      - Measuring the vibrancy of Austin using taxi data:
+      - Taxi data:
         - Project Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/introduction.pdf"
         - Video Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/Intro.mp4"
         - Sample Script (Selected):
           - Data Preprocessing: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/Data-Clean.ipynb"
           - Page Rank: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/PageRank.ipynb"
-      - Quantifying the impacts of POIs on human networks:
+      - Social Events:
         - Association Mining Overview: "Research/Quantifying-the-impacts-of-POIs-on-human-networks/YalinYang-Poster.pdf"
         - Place Recommendation Systems: "Research/Quantifying-the-impacts-of-POIs-on-human-networks/Enhancing-Place-Recommendation-Systems-using-Social-events.pdf"
         - Web application: "https://storymaps.arcgis.com/stories/546b6e82d701424b8bc2a9a0900786f7"
@@ -116,14 +119,14 @@ nav:
       - Tweets Sensitivity Analysis:
         - Project Intro: "Research/City-Sensitivity-Analysis/Tweets-sentimental.nb.html"
         - Shiny APP download: "Research/City-Sensitivity-Analysis/app2.R"
-      - Deciphering the Impact of Built Environments on Sleep Quality:
+      - Sleep Quality:
         - Project Intro: "Research/Deciphering-the-Impact-of-Built-Environments-on-Sleep-Quality/Intro.png"
         - Android App Development: "https://gisyaliny.github.io/files/research/GPS%20App%20instructions.pdf"
         - Serverless App development with AWS: "https://gisyaliny.github.io/#researchModal4"
-      - Add-in plug-in Development For Dislocated Water System Extraction:
+      - Add-in Development For Dislocated Water System:
         - Project Intro: "Research/Add-in-plug-in-Development-For-Dislocated-Water-System-Extraction/intro.ipynb"
         - Script Download: "Research/Add-in-plug-in-Development-For-Dislocated-Water-System-Extraction/ProfileAnalyst1.rar"
-      - Traffic Accidents In Dallas:
+      - Traffic Accidents:
         - Project Intro: "Research/Traffic-Accidents-In-Dallas/Intro.pdf"
         - MapMatching (Tranditional): "Research/Traffic-Accidents-In-Dallas/MapMatching.pdf"
         - MapMatching (HMM): "Research/Traffic-Accidents-In-Dallas/MapMatching-HMM.pdf"
