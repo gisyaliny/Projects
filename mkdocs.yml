@@ -96,6 +96,7 @@ nav:
         - Object Detection: "Computer-Vision/Object-Detection-Using-OpenCV.ipynb"
     - GIS:
       - Web Mapping: "GIS/Python-automation-tutorial.ipynb"
+      - Optimal GSS: "GIS/Optimize-GSS-with-tessellation.ipynb"
     - Data Analyst:
       - PowerBI:
         - Sales Summary: "https://app.powerbi.com/view?r=eyJrIjoiNzk2MjY2OTktZjNjOS00YzYzLTg5Y2YtN2Y0NTcxNzAxYmFkIiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9"
