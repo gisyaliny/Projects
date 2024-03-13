@@ -103,6 +103,11 @@ nav:
     - Deep-Learning:
       - NLP:
         - Craigslist Rent: "Deep-Learning/NLP/NLP-LSTM.ipynb"
+      - Time Series:
+        - Stock Price: "Deep-Learning/Stock-Price-Prediction-LSTM.ipynb"
+      - Image Processing:
+        - Pothole Detection: "Deep-Learning/Pothole-Detection.ipynb"
+        - CNN and RestNet: "Deep-Learning/Image/CNN-And-RestNet.ipynb"
     - Research:
       - Taxi data:
         - Project Intro: "Research/Measuring-the-vibrancy-of-Austin-using-taxi-data/introduction.pdf"
