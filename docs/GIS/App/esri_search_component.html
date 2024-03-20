@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.25/"></script>
+  <style>
+    #viewDiv {
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <div id="searchDiv"></div>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/widgets/Search"
+    ], function(Map, MapView, Search) {
+
+      const map = new Map({
+        basemap: "streets-vector"
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-118.805, 34.027],
+        zoom: 13
+      });
+
+      const search = new Search({
+        view: view,
+        container: "searchDiv",
+        includeDefaultSources: true
+      });
+
+      view.ui.add(search, "top-right");
+
+      search.on("search-complete", function(event) {
+        try {
+          const result = event.results[0].results[0];
+          const address = result.name;
+          const lat = result.feature.geometry.latitude;
+          const lon = result.feature.geometry.longitude;
+
+          if (address === "Address not found.") {
+            window.sendLocationToStreamlit(address, null, null);
+          } else {
+            view.center = [lon, lat]; // Update the map view's center
+            view.zoom = 15; // Set the desired zoom level
+
+            window.sendLocationToStreamlit(address, lat, lon);
+          }
+        } catch (err) {
+          window.sendLocationToStreamlit("Error occurred during search", null, null);
+        }
+      });
+    });
+
+    window.sendLocationToStreamlit = (address, lat, lon) => {
+      Streamlit.setComponentValue(address, lat, lon);
+    }
+  </script>
+</body>
+</html>
