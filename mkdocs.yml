@@ -98,7 +98,9 @@ nav:
       - Web Mapping: "GIS/Python-automation-tutorial.ipynb"
       - Optimal GSS: "GIS/Optimize-GSS-with-tessellation.ipynb"
       - Suitability Analysis: "GIS/SuitabilityModels/Spatial-Analysis-And-Suitability-Models.ipynb"
-      - Utilities: "GIS/Utilities/01-Intro-of-utility-network.ipynb"
+      - Utilities:
+        - 01 Intro: "GIS/Utilities/01-Intro-of-utility-network.ipynb"
+        - 02 Get started: "GIS/Utilities/02-Try-ArcGIS-Utility-Network.ipynb"
       - Raster Add-in: "GIS/Raster-Add-ins/YalinYangFinal.pptx.pdf"
     - Data Analyst:
       - PowerBI:
