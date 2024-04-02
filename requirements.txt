@@ -1,9 +1,9 @@
-bump2version
-coverage
-flake8
-grip
-ipykernel
-livereload
+bump2version==1.0.1
+coverage==7.4.4
+flake8==7.0.0
+grip==4.6.2
+ipykernel==6.29.3
+livereload==2.6.3
 nbconvert==6.5.3
 nbformat==5.4.0
 pip
@@ -12,11 +12,11 @@ tox
 twine
 watchdog
 wheel
-mkdocs
-mkdocs-git-revision-date-plugin 
-mkdocs-git-revision-date-localized-plugin
-mkdocs-jupyter 
-mkdocs-material 
+mkdocs==1.5.3
+mkdocs-git-revision-date-plugin==0.3.2
+mkdocs-git-revision-date-localized-plugin==1.2.4
+mkdocs-jupyter
+mkdocs-material==9.5.15
 mkdocs-pdf-export-plugin
 mkdocstrings
 mkdocstrings-crystal
@@ -24,3 +24,4 @@ mkdocstrings-python-legacy
 mkdocs-open-in-new-tab
 pygments
 pymdown-extensions
+lxml == 5.1.0
