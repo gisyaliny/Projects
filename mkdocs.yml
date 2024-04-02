@@ -2,7 +2,7 @@ site_name: Yalin(Eric) Yang's Projects
 # site_description: A Python package for interactive mapping with Google Earth Engine
 site_author: Yalin(Eric) Yang
 site_url: https://gisyaliny.github.io/projects/
-copyright: "Copyright &copy; 2022 - 2023 Yalin Yang"
+copyright: "Copyright &copy; 2023 - 2024 Yalin Yang"
 
 # Repository
 repo_name: gisyaliny/projects
@@ -11,6 +11,7 @@ repo_url: https://gisyaliny.github.io/projects/
 # Configuration
 theme:
     language: en
+    logo: assets/YalinYang.png
     palette:
         - scheme: default
           #   primary: blue
