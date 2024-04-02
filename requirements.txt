@@ -25,3 +25,4 @@ mkdocs-open-in-new-tab
 pygments
 pymdown-extensions
 lxml == 5.1.0
+ipython_genutils
