@@ -6,7 +6,7 @@ copyright: "Copyright &copy; 2023 - 2024 Yalin Yang"
 
 # Repository
 repo_name: gisyaliny/projects
-repo_url: https://gisyaliny.github.io/projects/
+repo_url: https://github.com/gisyaliny/projects/
 
 # Configuration
 theme:
@@ -45,7 +45,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://gisyaliny.github.io/
+      link: https://github.com/gisyaliny/projects/
     # - icon: fontawesome/brands/twitter
     #   link: https://twitter.com/c17hawke
     - icon: fontawesome/brands/linkedin
