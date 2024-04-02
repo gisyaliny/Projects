@@ -11,7 +11,7 @@ repo_url: https://github.com/gisyaliny/projects/
 # Configuration
 theme:
     language: en
-    logo: assets/YalinYang.png
+    # logo: assets/YalinYang.png
     palette:
         - scheme: default
           #   primary: blue
