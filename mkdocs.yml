@@ -96,6 +96,8 @@ nav:
       - OpenCV:
         - Object Detection: "Computer-Vision/Object-Detection-Using-OpenCV.ipynb"
     - GIS:
+      - Google:
+        - Google Street View: "GIS/Google/google_street_view.ipynb"
       - ESRI:
         - Dynamic Dashboard: "GIS/Python-automation-tutorial.ipynb"
         - Database Connection: "GIS/esri/arcsde_intro.ipynb"
