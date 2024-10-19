@@ -1,0 +1,398 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+<title>GISC_6363_Internet_Mapping Final</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      #infoDiv {
+        position: absolute;
+        top: 15px;
+        left: 60px;
+      }
+
+      #infoDiv input {
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px;
+      }
+	  #optionsDiv {
+        background-color: dimgray;
+        color: white;
+        padding: 10px;
+        width: 350px;
+      }
+
+      .esri-popup .esri-popup-header .esri-title {
+        font-size: 18px;
+        font-weight: bolder;
+      }
+
+      .esri-popup .esri-popup-body .esri-popup-content {
+        font-size: 14px;
+      }
+	  
+    </style>
+	
+	<link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.13/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.13/"></script>
+
+    <script>
+      require([
+        "esri/config",
+        "esri/Map",
+        "esri/portal/Portal",
+        "esri/views/MapView",
+        "esri/widgets/BasemapGallery",
+        "esri/widgets/Search",
+        "esri/widgets/Expand",
+		"esri/views/SceneView",
+        "esri/WebMap",
+		"esri/WebScene",
+		"esri/layers/FeatureLayer",
+		"esri/tasks/QueryTask",
+        "esri/tasks/support/Query",
+		"esri/layers/GraphicsLayer",
+		"esri/widgets/ScaleBar"
+      ], function(
+        esriConfig,
+        Map,
+        Portal,
+        MapView,
+        BasemapGallery,
+        Search,
+        Expand,
+		SceneView, WebMap, WebScene,FeatureLayer,
+		QueryTask,Query,GraphicsLayer,ScaleBar
+      ) {
+        esriConfig.portalUrl = "https://jsapi.maps.arcgis.com";
+        var portal = new Portal();
+		var switchButton = document.getElementById("switch-btn");		
+        var scene = new WebScene({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "a3b3689ee90f4713aa1fc88b168b1ff7",
+			popup: {
+            dockEnabled: true,
+            dockOptions: {
+              position: "top-right",
+              breakpoint: false
+            }
+          }
+        }});
+				
+		peaksUrl = "https://services2.arcgis.com/VNo0ht0YPXJoI4oE/arcgis/rest/services/Points_Project/FeatureServer/0";
+		
+		var popupTemplate = {
+          title: "{OBJECTID}",
+          fieldInfos: [
+            {
+              fieldName: "Rent",
+              label: "Rent (Dollar)",
+              format: {
+                places: 0,
+                digitSeperator: true
+              }
+            },
+            {
+              fieldName: "Bath",
+              label: "Bathroom",
+              format: {
+                places: 0,
+                digitSeperator: false
+              }
+            },
+            {
+              fieldName: "Bed",
+              label: "Bedroom",
+              format: {
+                places: 0,
+                digitSeperator: true
+              }
+            },
+            {
+              fieldName: "Area",
+              label: "Area (square feet)",
+              format: {
+                places: 0,
+                digitSeperator: true
+              }
+            },
+            {
+              fieldName: "CreateTime",
+              label: "Create Time",
+              format: {
+                places: 0,
+                digitSeperator: true
+              }
+            },
+            {
+              fieldName: "ShortIntro",
+              label: "Introduction",
+              format: {
+                places: 0,
+                digitSeperator: true
+              }
+            }
+          ],
+          content:
+            "<b>Rent:" +
+            "</b> {Rent} per month" +
+            "<br><b>Bathroom:</b> {Bath}" +
+            "<br><b>Bedroom:</b> {Bed} " +
+			"<br><b>Area:</b> {Area} square ft" +
+            "<br><b><a href={URL} target=”_blank>Introduction:</a>" +
+            "</b> {ShortIntro}"
+        };
+		
+		var mtnSymbol = {
+          type: "point-3d", // autocasts as new PointSymbol3D()
+          symbolLayers: [
+            {
+              type: "object", // autocasts as new ObjectSymbol3DLayer()
+              resource: {
+                primitive: "cone"
+              }
+            }
+          ]
+        };
+		
+		// Create graphics layer and symbol to use for displaying the results of query
+        var resultsLayer = new GraphicsLayer();
+		
+		var qTask = new QueryTask({
+          url: peaksUrl
+        });
+		
+		var params = new Query({
+          returnGeometry: true,
+          outFields: ["*"]
+        });
+		
+		//Assign a feature server of your choice to your FeatureLayer
+
+		var featureLayer = new FeatureLayer({
+          url: peaksUrl, //URL to reference for the feature layer
+		});
+		
+		var appConfig = {
+		  mapView: null,
+		  sceneView: null,
+		  activeView: null,
+		  container: "viewDiv" // use same container for views
+		};
+		
+        portal
+          .load()
+          .then(function() {
+            console.log(portal);
+            var basemap = portal.useVectorBasemaps
+              ? portal.defaultVectorBasemap
+              : portal.defaultBasemap;
+
+			var map = new Map({
+			  basemap: basemap,
+			  popup: {
+				dockEnabled: true,
+				dockOptions: {
+				  position: "top-right",
+				  breakpoint: false
+				}
+			}});
+			
+			map.add(featureLayer);
+			
+			var initialViewParams = {
+			  zoom: 11,
+			  center: [-96.7970, 32.7767],
+			  container: appConfig.container
+			};
+			
+			appConfig.mapView = createView(initialViewParams, "2d");
+			appConfig.mapView.map = map;
+			appConfig.activeView = appConfig.mapView;
+		
+			initialViewParams.container = null;
+			initialViewParams.map = scene;
+			// initialViewParams.map.add(resultsLayer);
+			appConfig.sceneView = createView(initialViewParams, "3d");
+			
+			appConfig.sceneView.when(function() {
+			appConfig.sceneView.ui.add("optionsDiv", "bottom-right");
+			  document.getElementById("doBtn").addEventListener("click", doQuery);
+			});
+
+			var attributeName = document.getElementById("attSelect");
+			var expressionSign = document.getElementById("signSelect");
+			var value = document.getElementById("valSelect");
+
+			function doQuery() {
+			  resultsLayer.removeAll();
+
+			  params.where =
+				attributeName.value + expressionSign.value + value.value;
+			  qTask
+				.execute(params)
+				.then(getResults)
+				.catch(promiseRejected);
+			}
+			
+			// Called each time the promise is resolved
+			function getResults(response) {
+			  var peakResults = response.features.map(function(feature) {
+				feature.symbol = {
+				  type: "point-3d", // autocasts as new PointSymbol3D()
+					  symbolLayers: [
+						{
+						  type: "object", // autocasts as new ObjectSymbol3DLayer()
+						  material: {
+							color: "green"
+						  },
+						  resource: {
+							primitive: "cone"
+						  },
+						  width: 100000,
+						  height: 1000
+						}
+					  ]
+				};
+
+				feature.popupTemplate = popupTemplate;
+				return feature;
+			  });
+
+			resultsLayer.addMany(peakResults);
+			
+			appConfig.sceneView.goTo(peakResults).then(function() {
+				appConfig.sceneView.popup.open({
+				  features: peakResults,
+				  featureMenuOpen: true,
+				  updateLocationEnabled: true
+				});
+			  });
+			
+			document.getElementById("printResults").innerHTML =
+			peakResults.length + " results found!";
+			}
+
+			// Called each time the promise is rejected
+			function promiseRejected(error) {
+			  console.error("Promise rejected: ", error.message);
+			}
+			
+            var basemapGallery = new BasemapGallery({
+              view: appConfig.mapView
+            });
+            var bgExpand = new Expand({
+              view: appConfig.mapView,
+              content: basemapGallery
+            });
+			
+		  	var scaleBar = new ScaleBar({
+			  view: appConfig.mapView,
+			  unit: "metric" // The scale bar displays both metric and non-metric units.
+			});
+			
+            appConfig.activeView.ui.add(bgExpand, "bottom-left");
+			appConfig.activeView.ui.add(scaleBar, "bottom-right");
+            var search = new Search({ view: appConfig.mapView });
+            appConfig.activeView.ui.add(search, "top-right");
+          })
+          .catch(function(error) {
+            console.warn(error);
+          });
+		  
+		switchButton.addEventListener("click", function() {
+          switchView();
+        });
+		
+		function switchView() {
+          var is3D = appConfig.activeView.type === "3d";
+          var activeViewpoint = appConfig.activeView.viewpoint.clone();
+
+          // remove the reference to the container for the previous view
+          appConfig.activeView.container = null;
+
+          if (is3D) {
+            // if the input view is a SceneView, set the viewpoint on the
+            // mapView instance. Set the container on the mapView and flag
+            // it as the active view
+            appConfig.mapView.viewpoint = activeViewpoint;
+            appConfig.mapView.container = appConfig.container;
+            appConfig.activeView = appConfig.mapView;
+            switchButton.value = "3D";
+          } else {
+            appConfig.sceneView.viewpoint = activeViewpoint;
+            appConfig.sceneView.container = appConfig.container;
+            appConfig.activeView = appConfig.sceneView;
+            switchButton.value = "2D";
+          }
+        }
+		
+		function createView(params, type) {
+          var view;
+          var is2D = type === "2d";
+          if (is2D) {
+            view = new MapView(params);
+            return view;
+          } else {
+            view = new SceneView(params);
+          }		
+          return view;
+        }
+		  
+		
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+	<div id="infoDiv">
+      <input
+        class="esri-component esri-widget--button esri-widget esri-interactive"
+        type="button"
+        id="switch-btn"
+        value="3D"
+      />
+    </div>
+	<div class="esri-widget" id="optionsDiv">
+      <h3>Housing Rent at Dallas</h3>
+      <select class="esri-widget" id="attSelect">
+        <option value="Rent">Rent (per month)</option>
+        <option value="Area" selected>Area (square feet)</option>
+      </select>
+      <select class="esri-widget" id="signSelect">
+        <option value=">">is greater than</option>
+        <option value="<">is less than</option>
+        <option value="=">is equal to</option>
+      </select>
+      <select class="esri-widget" id="valSelect">
+        <option value="500">500</option>
+        <option value="750">750</option>
+        <option value="1000">1000</option>
+        <option value="1250">1250</option>
+        <option value="1500">1500</option>
+      </select>
+      <br />
+      <br />
+      <button class="esri-widget" id="doBtn">Do Query</button> <br />
+      <p><span id="printResults"></span></p>
+    </div>
+	
+  </body>
+</html>
